@@ -28,8 +28,13 @@ object CommonModule {
   //
   val ideExcludedDirectories = SettingKey[Seq[File]]("ide-excluded-directories")
 
+  lazy val scala212 = "2.12.8"
+  lazy val scala213 = "2.13.6"
+  lazy val supportedScalaVersions = List(scala212, scala213)
+
   val settings: Seq[Setting[_]] = Seq(
-    scalaVersion := "2.12.8",
+    scalaVersion := scala212,
+    crossScalaVersions := supportedScalaVersions,
     scalacOptions ++= Seq(
       //see https://docs.scala-lang.org/overviews/compiler-options/index.html#Warning_Settings
       //"-Xcheckinit",
